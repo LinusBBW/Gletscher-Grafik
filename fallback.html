@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gletscher-Massenbilanz - Statische Version</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin: 20px 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Kumulative Massenbilanz gemittelt über 12 gemessene Gletscher in der Schweizer Alpen</h1>
+        
+        <p>Ihr Browser unterstützt leider nicht alle Funktionen, die für die interaktive Visualisierung benötigt werden.</p>
+        
+        <div>
+            <h2>Kumulative Massenbilanz 2010-2024</h2>
+            <!-- Statische Backup-Grafik -->
+            <img src="img/cumulative_massbalance.png" alt="Kumulative Massenbilanz 2010-2024">
+        </div>
+        
+        <div>
+            <h2>Realtime Massenbilanz 2025</h2>
+            <!-- Statische Backup-Grafik -->
+            <img src="img/current_year_massbalance.png" alt="Realtime Massenbilanz 2025">
+        </div>
+        
+        <p>Diese Daten werden regelmäßig aktualisiert. Letztes Update: <span id="last-update">15.03.2025</span></p>
+    </div>
+    
+    <script>
+        // Einfaches Script zum Abrufen und Anzeigen des letzten Update-Datums
+        fetch('https://doi.glamos.ch/figures/massbalance_current/mb-cum-cycle_2010-2024.txt')
+            .then(response => response.text())
+            .then(text => {
+                const lines = text.trim().split('\n');
+                const lastLine = lines[lines.length - 1];
+                const date = lastLine.split('\t')[0];
+                document.getElementById('last-update').textContent = date;
+            })
+            .catch(error => {
+                console.error('Fehler beim Abrufen des Update-Datums:', error);
+            });
+    </script>
+</body>
+</html>

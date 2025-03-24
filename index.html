@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gletscher-Massenbilanz Visualisierung</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-black">
+    <div id="root">
+        <div id="app-container" class="flex flex-col items-center justify-center h-screen bg-black text-white p-4">
+            <button 
+                id="language-toggle"
+                class="absolute top-4 right-4 bg-gray-700 hover:bg-gray-600 px-3 py-1 rounded"
+            >
+                DE
+            </button>
+            
+            <h1 id="title" class="text-2xl md:text-3xl mb-4 text-center animate-fadeIn">
+                Kumulative Massenbilanz gemittelt über 12 gemessene Gletscher in der Schweizer Alpen (2010-2024)
+            </h1>
+            
+            <div class="w-full h-3/4 animate-fadeIn">
+                <div id="chart-container" style="width: 100%; height: 100%"></div>
+            </div>
+            
+            <div id="update-info" class="mt-4 text-gray-400 animate-fadeIn">
+                Letztes Update: Wird geladen...
+            </div>
+        </div>
+    </div>
+
+    <!-- D3.js für die direkte Visualisierung -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.0.0/d3.min.js"></script>
+    
+    <!-- Anwendungslogik -->
+    <script src="js/glacier-visualization.js"></script>
+</body>
+</html>
