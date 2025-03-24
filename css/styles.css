@@ -1,0 +1,48 @@
+/* Ergänzende Stile zur Tailwind CSS */
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: 'Arial', sans-serif;
+    color: white;
+}
+
+/* Fullscreen-Modus für die Ausstellung */
+#root {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+}
+
+/* Anpassungen für die Recharts-Komponenten */
+.recharts-surface {
+    overflow: visible;
+}
+
+.recharts-tooltip-wrapper {
+    filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.5));
+}
+
+/* Anpassungen für die Animation */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.animate-fadeIn {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Anpassungen für bessere Lesbarkeit auf Displays */
+.recharts-text {
+    font-weight: 500;
+    font-size: 12px;
+}
+
+.recharts-legend-item-text {
+    font-size: 12px;
+}
